@@ -1,0 +1,11 @@
+#page-jokes {
+  display: flex;
+
+  div {
+    flex-grow: 1;
+  }
+
+  div:first-child {
+    text-align: center;
+  }
+}
