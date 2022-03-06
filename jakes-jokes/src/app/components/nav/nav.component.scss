@@ -1,0 +1,28 @@
+nav {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nav-button {
+    background: #3d94f6;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 7px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0 grey;
+    text-shadow: 1px 1px 5px grey;
+    border: solid #337fed 1px;
+    cursor: pointer;
+  }
+
+  .nav-button:hover {
+    background: #1e62d0;
+  }
+
+  .nav-button:active {
+    box-shadow: none;
+  }
+}
