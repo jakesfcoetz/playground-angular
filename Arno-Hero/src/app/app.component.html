@@ -1,5 +1,8 @@
 <h1>{{ title }}</h1>
-<app-heroes></app-heroes>
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
 <app-message></app-message>
 <!-- {{ }} string interpolation: dynamically update dom element from component -->
 <!-- [] - attribute binding from component (ts) to template (HTML) -->
