@@ -19,6 +19,8 @@ export class JokeService {
    * @returns     {JokeResponseI} Observable
    */
   getJoke(params?: JokeRequestParamsI): Observable<JokeResponseI> {
+    console.log(params);
+
     let endpoint: string = jokeApiC.url;
     let qParams: any = null;
     //--- Add URL params (/)
@@ -30,6 +32,8 @@ export class JokeService {
     //--- Add query params (?)
     if (params?.queryParams) {
       qParams = params.queryParams;
+      console.log(qParams);
+
       //--- format blacklist flags array to comma separated string
       if (params?.queryParams?.blacklistFlags && Array.isArray(params.queryParams?.blacklistFlags) && params?.queryParams?.blacklistFlags.length) {
         qParams.blacklistFlags = qParams.blacklistFlags.join(',');
