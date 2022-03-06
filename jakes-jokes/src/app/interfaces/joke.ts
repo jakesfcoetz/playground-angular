@@ -4,8 +4,8 @@
  */
 export const jokeApiC = {
   url: 'https://v2.jokeapi.dev/joke',
-  categories: ['Any', 'Misc', 'Programming', 'Dark', 'Pun', 'Spooky', 'Christmas'],
-  flags: ['nsfw', 'religious', 'political', 'racist', 'sexist', 'explicit'],
+  categories: ['Misc', 'Programming', 'Dark', 'Pun', 'Spooky', 'Christmas'],
+  blacklistFlags: ['nsfw', 'religious', 'political', 'racist', 'sexist', 'explicit'],
   types: ['single', 'twopart'],
 } as const;
 
@@ -18,7 +18,7 @@ export interface JokeRequestParamsI {
     category?: typeof jokeApiC.categories[number][]; //--- Comma separated url param
   };
   queryParams?: {
-    blacklistFlags?: typeof jokeApiC.flags[number][];
+    blacklistFlags?: typeof jokeApiC.blacklistFlags[number][];
     type?: typeof jokeApiC.types[number];
     contains?: string;
   };
@@ -36,7 +36,7 @@ interface JokeResponseBaseI {
   category: typeof jokeApiC.categories[number];
   type: 'single' | 'twopart';
   flags: {
-    [K in typeof jokeApiC.flags[number]]: boolean;
+    [K in typeof jokeApiC.blacklistFlags[number]]: boolean;
   };
   id: number;
   safe: boolean;

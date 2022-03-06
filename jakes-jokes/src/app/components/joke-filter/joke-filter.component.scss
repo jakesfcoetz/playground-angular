@@ -1,0 +1,20 @@
+.selection {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  h3 {
+    margin: 0px;
+    width: 100px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
