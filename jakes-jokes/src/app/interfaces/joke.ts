@@ -2,20 +2,26 @@
  * @name          jokeApiC
  * @description   Various constant values used with the joke API
  */
-const jokeApiC = {
-  url: 'https://v2.jokeapi.dev/joke/',
+export const jokeApiC = {
+  url: 'https://v2.jokeapi.dev/joke',
   categories: ['Any', 'Misc', 'Programming', 'Dark', 'Pun', 'Spooky', 'Christmas'],
   flags: ['nsfw', 'religious', 'political', 'racist', 'sexist', 'explicit'],
+  types: ['single', 'twopart'],
 } as const;
 
 /**==============================================
  * @interface     JokeRequestParamsI
  * @description   Defines the possible payload options when requesting a new joke
  */
-interface JokeRequestParamsI {
-  //---<>
-  category?: typeof jokeApiC.categories[number];
-  blacklistFlags?: typeof jokeApiC.flags[number];
+export interface JokeRequestParamsI {
+  urlParams?: {
+    category?: typeof jokeApiC.categories[number][]; //--- Comma separated url param
+  };
+  queryParams: {
+    blacklistFlags: typeof jokeApiC.flags[number][];
+    type: typeof jokeApiC.types[number];
+    contains: string;
+  };
 }
 
 /**==============================================
@@ -23,7 +29,7 @@ interface JokeRequestParamsI {
  * @description   Defines the content of a joke api response
  */
 
-type JokeResponseI = TypeSinglePartJokeI | TypeTwoPartJokeI;
+export type JokeResponseI = TypeSinglePartJokeI | TypeTwoPartJokeI;
 
 interface JokeResponseBaseI {
   error: boolean;
