@@ -23,7 +23,7 @@ export class JokeFilterComponent implements OnInit {
    * @description   Update various values on start-up
    */
   ngOnInit(): void {
-    this.jokeService.getJoke().subscribe((joke) => {
+    this.jokeService.getJoke({ queryParams: { blacklistFlags: ['nsfw', 'explicit', 'sexist'] } }).subscribe((joke) => {
       if (!joke.error) {
         console.log('RES:', joke);
       }

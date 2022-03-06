@@ -20,27 +20,23 @@ export class JokeService {
    */
   getJoke(params?: JokeRequestParamsI): Observable<JokeResponseI> {
     let endpoint: string = jokeApiC.url;
+    let qParams: any = null;
     //--- Add URL params (/)
     if (Array.isArray(params?.urlParams?.category) && params?.urlParams?.category.length) {
       endpoint += '/' + params?.urlParams?.category.join(',');
+    } else {
+      endpoint += '/any';
     }
     //--- Add query params (?)
     if (params?.queryParams) {
-      // let qParams = new HttpParams();
-      // Object.keys(params.queryParams).forEach((paramProp) => {
-      //   if (paramProp == 'blacklistFlags' && Array.isArray(params.queryParams?.blacklistFlags) && params?.queryParams?.blacklistFlags.length) {
-      //     qParams = qParams.append(paramProp, params.queryParams.blacklistFlags.join(','));
-      //   } else {
-      //     qParams = qParams.append(paramProp, params.queryParams[paramProp]);
-      //   }
-      // });
-    }
-    //--- Add default url param if none exists
-    if (!params?.urlParams && !params?.queryParams) {
-      endpoint = jokeApiC.url + '/any';
+      qParams = params.queryParams;
+      //--- format blacklist flags array to comma separated string
+      if (params?.queryParams?.blacklistFlags && Array.isArray(params.queryParams?.blacklistFlags) && params?.queryParams?.blacklistFlags.length) {
+        qParams.blacklistFlags = qParams.blacklistFlags.join(',');
+      }
     }
 
     console.log(endpoint);
-    return this.http.get<JokeResponseI>(endpoint).pipe(catchError((err) => of(err)));
+    return this.http.get<JokeResponseI>(endpoint, qParams ? { params: qParams } : {}).pipe(catchError((err) => of(err)));
   }
 }
