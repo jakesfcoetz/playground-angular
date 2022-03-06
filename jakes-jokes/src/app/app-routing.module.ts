@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //--- Components
-import { JokesComponent } from './components/jokes/jokes.component';
-import { LandingComponent } from './components/landing/landing.component';
+import { JokesComponent } from './pages/jokes/jokes.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
