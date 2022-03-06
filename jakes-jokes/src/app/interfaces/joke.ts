@@ -17,10 +17,10 @@ export interface JokeRequestParamsI {
   urlParams?: {
     category?: typeof jokeApiC.categories[number][]; //--- Comma separated url param
   };
-  queryParams: {
-    blacklistFlags: typeof jokeApiC.flags[number][];
-    type: typeof jokeApiC.types[number];
-    contains: string;
+  queryParams?: {
+    blacklistFlags?: typeof jokeApiC.flags[number][];
+    type?: typeof jokeApiC.types[number];
+    contains?: string;
   };
 }
 
