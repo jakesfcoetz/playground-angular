@@ -1,9 +1,10 @@
 <p *ngIf="jokeDisplay?.onePart">
   {{ jokeDisplay?.onePart }}
 </p>
-<p *ngIf="jokeDisplay?.twoPart">
-  <span>{{ jokeDisplay?.twoPart?.setup }}</span>
-  <span>{{ jokeDisplay?.twoPart?.delivery }}</span>
+<p *ngIf="jokeDisplay?.twoPart" class="two-part">
+  {{ jokeDisplay?.twoPart?.setup }}
+  <br />
+  {{ jokeDisplay?.twoPart?.delivery }}
 </p>
 <p *ngIf="jokeDisplay?.error" class="error">
   {{ jokeDisplay?.error }}
