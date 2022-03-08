@@ -19,28 +19,17 @@ export class JokeService {
    * @returns     {JokeResponseI} Observable
    */
   getJoke(params?: JokeRequestParamsI): Observable<JokeResponseI> {
-    console.log(params);
+    console.log('params:', params);
 
     let endpoint: string = jokeApiC.url;
-    let qParams: any = null;
     //--- Add URL params (/)
-    if (Array.isArray(params?.urlParams?.category) && params?.urlParams?.category.length) {
-      endpoint += '/' + params?.urlParams?.category.join(',');
+    if (Array.isArray(params?.category) && params?.category.length) {
+      endpoint += '/' + params?.category.join(',');
     } else {
       endpoint += '/any';
     }
-    //--- Add query params (?)
-    if (params?.queryParams) {
-      qParams = params.queryParams;
-      console.log(qParams);
-
-      //--- format blacklist flags array to comma separated string
-      if (params?.queryParams?.blacklistFlags && Array.isArray(params.queryParams?.blacklistFlags) && params?.queryParams?.blacklistFlags.length) {
-        qParams.blacklistFlags = qParams.blacklistFlags.join(',');
-      }
-    }
-
-    console.log(endpoint);
-    return this.http.get<JokeResponseI>(endpoint, qParams ? { params: qParams } : {}).pipe(catchError((err) => of(err)));
+    return this.http
+      .get<JokeResponseI>(endpoint, params?.contains ? { params: { contains: params.contains } } : {})
+      .pipe(catchError((err) => of(err)));
   }
 }

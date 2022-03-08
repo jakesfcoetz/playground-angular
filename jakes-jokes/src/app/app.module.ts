@@ -9,11 +9,10 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { JokesComponent } from './pages/jokes/jokes.component';
-import { JokeFilterComponent } from './components/joke-filter/joke-filter.component';
 import { JokeDisplayComponent } from './components/joke-display/joke-display.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, LandingComponent, JokesComponent, JokeFilterComponent, JokeDisplayComponent],
+  declarations: [AppComponent, NavComponent, LandingComponent, JokesComponent, JokeDisplayComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,10 @@
-<p>joke-display works!</p>
+<p *ngIf="jokeDisplay?.onePart">
+  {{ jokeDisplay?.onePart }}
+</p>
+<p *ngIf="jokeDisplay?.twoPart">
+  <span>{{ jokeDisplay?.twoPart?.setup }}</span>
+  <span>{{ jokeDisplay?.twoPart?.delivery }}</span>
+</p>
+<p *ngIf="jokeDisplay?.error" class="error">
+  {{ jokeDisplay?.error }}
+</p>

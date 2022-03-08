@@ -4,9 +4,7 @@
  */
 export const jokeApiC = {
   url: 'https://v2.jokeapi.dev/joke',
-  categories: ['Misc', 'Programming', 'Dark', 'Pun', 'Spooky', 'Christmas'],
-  blacklistFlags: ['nsfw', 'religious', 'political', 'racist', 'sexist', 'explicit'],
-  types: ['single', 'twopart'],
+  categories: ['Any', 'Misc', 'Programming', 'Dark', 'Pun', 'Spooky', 'Christmas'],
 } as const;
 
 /**==============================================
@@ -14,14 +12,8 @@ export const jokeApiC = {
  * @description   Defines the possible payload options when requesting a new joke
  */
 export interface JokeRequestParamsI {
-  urlParams?: {
-    category?: typeof jokeApiC.categories[number][]; //--- Comma separated url param
-  };
-  queryParams?: {
-    blacklistFlags?: typeof jokeApiC.blacklistFlags[number][];
-    type?: typeof jokeApiC.types[number];
-    contains?: string;
-  };
+  category?: typeof jokeApiC.categories[number][]; //--- Comma separated url param
+  contains?: string;
 }
 
 /**==============================================
@@ -29,25 +21,40 @@ export interface JokeRequestParamsI {
  * @description   Defines the content of a joke api response
  */
 
-export type JokeResponseI = TypeSinglePartJokeI | TypeTwoPartJokeI;
+export type JokeResponseI = TypeSinglePartJokeI | TypeTwoPartJokeI | TypeJokeNotFoundI;
 
 interface JokeResponseBaseI {
   error: boolean;
   category: typeof jokeApiC.categories[number];
   type: 'single' | 'twopart';
   flags: {
-    [K in typeof jokeApiC.blacklistFlags[number]]: boolean;
+    nsfw: boolean;
+    religious: boolean;
+    political: boolean;
+    racist: boolean;
+    sexist: boolean;
+    explicit: boolean;
   };
   id: number;
   safe: boolean;
   lang: string;
 }
 
-interface TypeSinglePartJokeI extends JokeResponseBaseI {
+export interface TypeSinglePartJokeI extends JokeResponseBaseI {
   joke: string;
 }
 
-interface TypeTwoPartJokeI extends JokeResponseBaseI {
+export interface TypeTwoPartJokeI extends JokeResponseBaseI {
   setup: string;
   delivery: string;
+}
+
+export interface TypeJokeNotFoundI {
+  error: true;
+  internalError: boolean;
+  code: number;
+  message: string;
+  causedBy: string[];
+  additionalInfo: string;
+  timestamp: number;
 }

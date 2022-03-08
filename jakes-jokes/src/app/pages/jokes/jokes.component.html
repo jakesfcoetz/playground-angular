@@ -1,6 +1,22 @@
-<div>
-  <app-joke-filter></app-joke-filter>
+<div id="joke-filter">
+  <div [formGroup]="jokeForm">
+    <!-- Categories -->
+    <div class="selection">
+      <h3>Categories</h3>
+      <p *ngFor="let cat of availableCategories">
+        <input type="radio" formControlName="category" [value]="cat" />
+        {{ cat }}
+      </p>
+    </div>
+    <!-- Contains -->
+    <div class="selection">
+      <h3>Contains</h3>
+      <input type="text" formControlName="contains" />
+    </div>
+  </div>
 </div>
-<div>
-  <app-joke-display></app-joke-display>
+<div id="button">
+  <button (click)="getJoke()">Get Joke</button>
 </div>
+
+<app-joke-display *ngFor="let joke of jokeHistory" [joke]="joke"></app-joke-display>
