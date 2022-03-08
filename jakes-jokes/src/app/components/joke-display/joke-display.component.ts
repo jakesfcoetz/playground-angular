@@ -5,7 +5,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 //--- Interfaces
-import { JokeResponseI, TypeJokeNotFoundI, TypeSinglePartJokeI, TypeTwoPartJokeI } from 'src/app/interfaces/joke';
+import { JokeResponseI, TypeJokeNotFoundI, TypeSinglePartJokeI, TypeTwoPartJokeI } from 'src/app/interfaces/joke.interfaces';
 
 @Component({
   selector: 'app-joke-display',

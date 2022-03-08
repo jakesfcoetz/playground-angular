@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
-import { jokeApiC, JokeRequestParamsI, JokeResponseI } from '../interfaces/joke';
+import { jokeApiC, JokeRequestParamsI, JokeResponseI } from '../interfaces/joke.interfaces';
 
 @Injectable({
   providedIn: 'root',

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 //--- Service
 import { JokeService } from 'src/app/services/joke.service';
-import { jokeApiC } from 'src/app/interfaces/joke';
+import { jokeApiC } from 'src/app/interfaces/joke.interfaces';
 
 @Component({
   selector: 'app-jokes',
@@ -43,7 +43,7 @@ export class JokesComponent {
         ...(this.jokeForm.controls['contains'].value ? { contains: this.jokeForm.controls['contains'].value } : {}),
       })
       .subscribe((joke) => {
-        this.jokeHistory = [joke, ...this.jokeHistory];
+        this.jokeHistory = [joke, ...this.jokeHistory.slice(0, 2)];
       });
   }
 }
