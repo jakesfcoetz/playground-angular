@@ -15,8 +15,10 @@
     </div>
   </div>
 </div>
-<div id="button">
+<div id="button-get-joke">
   <button (click)="getJoke()">Get Joke</button>
 </div>
 
-<app-joke-display *ngFor="let joke of jokeHistory" [joke]="joke"></app-joke-display>
+<div id="joke-list">
+  <app-joke-display *ngFor="let joke of jokeHistory" [joke]="joke"></app-joke-display>
+</div>

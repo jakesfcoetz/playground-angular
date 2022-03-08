@@ -18,8 +18,13 @@
   }
 }
 
-#button {
+#button-get-joke {
   display: flex;
   justify-content: center;
   padding: 5px;
+}
+
+#joke-list {
+  max-width: 50%;
+  margin: auto;
 }
