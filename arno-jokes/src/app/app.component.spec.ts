@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'parent-child-navigation-app'`, () => {
+  it(`should have as title 'arno-jokes'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('parent-child-navigation-app');
+    expect(app.title).toEqual('arno-jokes');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('parent-child-navigation-app app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('arno-jokes app is running!');
   });
 });

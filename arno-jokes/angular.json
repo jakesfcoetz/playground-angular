@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "parent-child-navigation-app": {
+    "arno-jokes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/parent-child-navigation-app",
+            "outputPath": "dist/arno-jokes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "parent-child-navigation-app:build:production"
+              "browserTarget": "arno-jokes:build:production"
             },
             "development": {
-              "browserTarget": "parent-child-navigation-app:build:development"
+              "browserTarget": "arno-jokes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "parent-child-navigation-app:build"
+            "browserTarget": "arno-jokes:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "parent-child-navigation-app"
+  "defaultProject": "arno-jokes"
 }
