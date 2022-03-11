@@ -1,16 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 div.parent {
   background-color: blue;
-  height: 200px;
+  height: 400px;
   width: 200px;
+  float: left;
+  padding: 20px;
 }
 div.child {
   background-color: yellow;
-  height: 100px;
+  height: 200px;
   width: 100px;
+  padding: 20px;
 }
 div.sibling {
   background-color: green;
   height: 200px;
   width: 200px;
+  float: left;
+  vertical-align: top;
+  padding: 20px;
+  margin-left: 20px;
 }

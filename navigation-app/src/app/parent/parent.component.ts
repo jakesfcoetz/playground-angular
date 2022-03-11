@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent.component.scss'],
 })
 export class ParentComponent implements OnInit {
+  parentMessage = 'Hi Son';
+  childMessage?: string;
   constructor() {}
 
   ngOnInit(): void {}
+
+  setToParent(data: string | undefined) {
+    this.childMessage = data;
+  }
 }

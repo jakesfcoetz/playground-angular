@@ -1,2 +1,3 @@
-<p>{{ childMessage }}</p>
-<button (click)="childMessageChange()">Child Click</button>
+<h3>Child Says:{{ childMessage }}</h3>
+<h3>Child Hears:{{ childHears }}</h3>
+<button (click)="sendToParent()" class="button">Speak</button>

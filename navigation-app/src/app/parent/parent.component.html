@@ -1,2 +1,4 @@
-<p>parent works!</p>
-<div class="child"><app-child></app-child></div>
+<h3>Parent Says:{{ parentMessage }}</h3>
+<h3>Parent Hears:{{ childMessage }}</h3>
+<div class="child"><app-child [childHears]="parentMessage" (childEvent)="setToParent($event)"></app-child></div>
+<h3>Sibling Shouts!:</h3>
