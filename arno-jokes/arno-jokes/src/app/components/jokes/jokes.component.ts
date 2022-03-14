@@ -1,3 +1,4 @@
+import { JokesService } from './../../services/jokes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokesComponent implements OnInit {
 
-  constructor() { }
+constructor( private JokesService:JokesService) {
+}
 
   ngOnInit(): void {
   }
