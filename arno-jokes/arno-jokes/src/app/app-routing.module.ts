@@ -7,7 +7,7 @@ import { JokesComponent } from './components/jokes/jokes.component';
 const routes: Routes = [
 {path:'jokes', component: JokesComponent},
 {path:'menu', component: NavbarComponent},
-{path:'', component:NavbarComponent},
+{path:'', component:NavbarComponent ,pathMatch:"full"},
 ];
 
 @NgModule({
