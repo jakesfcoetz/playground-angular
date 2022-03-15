@@ -1,22 +1,11 @@
-.jokeSelect{
-    border: solid black 1px;
-    width: 400px;
-}
+
 .jokeContainer{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .jokeDisplay{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-}
-
-h4.title{
-    display:flex;
-    justify-content: center;
-    align-items: center; 
+    text-align: center;
 }

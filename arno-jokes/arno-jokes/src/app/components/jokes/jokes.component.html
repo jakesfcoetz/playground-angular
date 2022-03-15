@@ -1,10 +1,15 @@
-<app-navbar></app-navbar>
 <div class="jokeContainer">
     <div class="jokeSelect">
-        <h4 class="title">Choose your type of humor</h4>
-            <input type="radio" name="jokeType" id="it" value="computer"><label>Computer</label>
-            <input type="radio" name="jokeType" id="dark" value="dark"><label>Dark</label>
-    </div>
+        <Label><strong>Categories : </strong></Label>
+        <input type="radio" name="jokeType" id="programing" value="programing"><label>Programing</label>
+        <input type="radio" name="jokeType" id="misc" value="misc"><label>Misc</label>
+        <input type="radio" name="jokeType" id="dark" value="dark"><label>Dark</label>
+        <input type="radio" name="jokeType" id="pun" value="pun"><label>Pun</label>
+        <input type="radio" name="jokeType" id="spooky" value="spooky"><label>Spooky</label>
+        <input type="radio" name="jokeType" id="christmas" value="christmas"><label>Christmas</label><br>
+        <Label><strong>Contains : </strong></Label>
+        <input type="textbox"><br>
+        <button class="button" (click)="getJoke()">Tel me</button></div>
 </div>
 <div class="jokeDisplay">
     <p>joke 1</p>

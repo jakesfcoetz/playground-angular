@@ -5,6 +5,16 @@ nav{
     align-items: center;
     }
     
-    .button{
-    margin:5px;
+    button{
+    margin: 10px;
+    padding: 5px;
+    background-color:cornflowerblue;
+    border-radius: 5px;
+    }
+
+    button:hover{
+        background-color:white ;
+    }
+    button:active{
+        background-color:midnightblue;
     }

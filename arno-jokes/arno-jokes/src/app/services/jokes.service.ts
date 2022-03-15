@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class JokesService {
-  // url="https://top-funny-jokes.com/";
-  // joke:any;
+  readonly url="https://v2.jokeapi.dev/";
+  joke:any;
 
-  constructor(private http:HttpClientModule) { }
+  constructor(private http:HttpClient) { 
+    
+  }
 
-  // getJoke(){
-  //   this.joke = this.http.get(this.url);
-  // }
+  getJokeFromServer(){
+this.joke = this.http.get(this.url + "/joke/Programing")
+  }
 }

@@ -9,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class JokesComponent implements OnInit {
 
 constructor( private JokesService:JokesService) {
+
 }
 
   ngOnInit(): void {
   }
 
+  getJoke(){
+    this.JokesService.getJokeFromServer();
+  }
 }
