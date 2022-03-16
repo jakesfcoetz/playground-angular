@@ -1,5 +1,6 @@
 import { JokesService } from './../../services/jokes.service';
 import { Component, OnInit } from '@angular/core';
+import { joke } from './joke';
 
 @Component({
   selector: 'app-jokes',
@@ -7,15 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jokes.component.scss']
 })
 export class JokesComponent implements OnInit {
-
-constructor( private JokesService:JokesService) {
-
-}
+  joke:joke;
+  
+constructor( private JokesService:JokesService) {}
 
   ngOnInit(): void {
   }
 
   getJoke(){
-    this.JokesService.getJokeFromServer();
+    this.JokesService.getJokeFromServer().subscribe(response =>
+    this.joke = response
+      );
+      console.log(Response)
   }
 }
