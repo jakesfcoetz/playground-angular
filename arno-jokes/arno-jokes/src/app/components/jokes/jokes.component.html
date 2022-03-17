@@ -12,7 +12,5 @@
         <button class="button" (click)="getJoke()">Tel me</button></div>
 </div>
 <div class="jokeDisplay">
-    <p>{{joke | json}}</p>
-    <p>joke 2</p>
-    <p>joke 3</p>
+    <p *ngFor="let packet of jokeA">{{packet}}</p>
 </div>
