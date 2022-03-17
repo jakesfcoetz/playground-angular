@@ -8,7 +8,7 @@ import { joke } from './joke';
   styleUrls: ['./jokes.component.scss']
 })
 export class JokesComponent implements OnInit {
-  joke:joke;
+  joke?:joke;
   
 constructor( private JokesService:JokesService) {}
 
