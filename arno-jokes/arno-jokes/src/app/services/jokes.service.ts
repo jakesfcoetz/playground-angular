@@ -14,7 +14,7 @@ export class JokesService {
     
   }
 
-  getJokeFromServer() :Observable<joke[]>{
-return this.http.get<joke[]>(this.url)
+  getJokeFromServer() :Observable<joke>{
+return this.http.get<joke>(this.url)
   }
 }
