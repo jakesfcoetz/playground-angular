@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { joke } from '../components/jokes/joke';
+import { JokeI } from '../components/jokes/joke';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JokesService {
-  readonly url="https://v2.jokeapi.dev/joke/Any";
-  
+  readonly url = 'https://v2.jokeapi.dev/joke/Any';
 
-  constructor(private http:HttpClient) { 
-    
-  }
+  constructor(private http: HttpClient) {}
 
-  getJokeFromServer() :Observable<joke>{
-return this.http.get<joke>(this.url)
+  getJokeFromServer(): Observable<JokeI> {
+    return this.http.get<JokeI>(this.url);
   }
 }
