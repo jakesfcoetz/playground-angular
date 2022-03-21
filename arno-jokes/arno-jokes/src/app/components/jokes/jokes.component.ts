@@ -1,5 +1,5 @@
 import { JokesService } from './../../services/jokes.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { JokeI } from './joke';
 
 @Component({
@@ -10,21 +10,29 @@ import { JokeI } from './joke';
 export class JokesComponent implements OnInit {
   jokeText: string = '';
   joke?: JokeI;
-  jokeA: string[] = [];
+  jokeArray: string[] = [];
+  jokeTextBox: string = '';
+  jokeCategories: string = '';
+
   constructor(private JokesService: JokesService) {}
 
   ngOnInit(): void {}
 
+  getJokeCategories(jokeCategories?: string) {
+    this.JokesService.jokeCategoryChange(jokeCategories);
+  }
+
   getJoke() {
+    this.JokesService.jokeServiceText?.subscribe((data) => (data = this.jokeTextBox));
     this.JokesService.getJokeFromServer().subscribe((response) => {
       this.joke = response;
-      this.jokeA.splice(2, 1);
+      this.jokeArray.splice(2, 1);
       if (this.joke.type == 'single' && this.joke.joke) {
-        this.jokeA.push((this.jokeText = this.joke.joke));
+        this.jokeArray.push((this.jokeText = this.joke.joke));
       } else if (this.joke.type == 'twopart' && this.joke.delivery) {
-        this.jokeA.push((this.jokeText = this.joke.setup + '  ' + this.joke.delivery));
+        this.jokeArray.push((this.jokeText = this.joke.setup + '  ' + this.joke.delivery));
       }
-      this.jokeA.reverse();
+      this.jokeArray.reverse();
     });
   }
 }
