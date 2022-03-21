@@ -1,14 +1,14 @@
 <div class="jokeContainer">
     <div class="jokeSelect">
         <Label><strong>Categories : </strong></Label>
-        <input type="radio" name="jokeType" id="programing" value="programing"><label>Programing</label>
-        <input type="radio" name="jokeType" id="misc" value="misc"><label>Misc</label>
-        <input type="radio" name="jokeType" id="dark" value="dark"><label>Dark</label>
-        <input type="radio" name="jokeType" id="pun" value="pun"><label>Pun</label>
-        <input type="radio" name="jokeType" id="spooky" value="spooky"><label>Spooky</label>
-        <input type="radio" name="jokeType" id="christmas" value="christmas"><label>Christmas</label><br>
+        <input class="radioJoke" type="radio" name="jokeType" id="programing" value="programing" (change)="getJokeCategories('Programing')"><label>Programing</label>
+        <input class="radioJoke" type="radio" name="jokeType" id="misc" value="misc" (change)="getJokeCategories('misc')"><label>Misc</label>
+        <input class="radioJoke" type="radio" name="jokeType" id="dark" value="dark" (change)="getJokeCategories('dark')"><label>Dark</label>
+        <input class="radioJoke" type="radio" name="jokeType" id="pun" value="pun" (change)="getJokeCategories('pun')"><label>Pun</label>
+        <input class="radioJoke" type="radio" name="jokeType" id="spooky" value="spooky" (change)="getJokeCategories('spooky')"><label>Spooky</label>
+        <input class="radioJoke" type="radio" name="jokeType" id="christmas" value="christmas" (change)="getJokeCategories('christmas')"><label>Christmas</label><br>
         <Label><strong>Contains : </strong></Label>
-        <input type="textbox"><br>
+        <input [value]="jokeTextBox" id="jokeContains" type="textbox"><br>
         <button class="button" (click)="getJoke()">Tel me</button></div>
 </div>
 <div class="jokeDisplay">
