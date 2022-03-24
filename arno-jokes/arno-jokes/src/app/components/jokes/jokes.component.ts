@@ -25,10 +25,10 @@ export class JokesComponent implements OnInit {
   getJoke() {
     this.JokesService.getJokeFromServer(this.jokeCategories, this.jokeTextBox).subscribe((response) => {
       this.joke = response;
+      this.jokeArray.splice(2, 1);
       if (this.joke.error == true) {
         this.jokeArray.push('No joke found...');
       } else {
-        this.jokeArray.splice(2, 1);
         if (this.joke.type == 'single' && this.joke.joke) {
           this.jokeArray.push((this.jokeText = this.joke.joke));
         } else if (this.joke.type == 'twopart' && this.joke.delivery) {
