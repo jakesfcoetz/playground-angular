@@ -8,7 +8,7 @@
         <input class="radioJoke" type="radio" name="jokeType" id="spooky" value="spooky" (change)="getJokeCategories('Spooky')"><label>Spooky</label>
         <input class="radioJoke" type="radio" name="jokeType" id="christmas" value="christmas" (change)="getJokeCategories('Christmas')"><label>Christmas</label><br>
         <Label><strong>Contains : </strong></Label>
-        <input [value]="jokeTextBox" id="jokeContains" type="textbox"><br>
+        <input [(ngModel)]='jokeTextBox' id="jokeContains" type="textbox"><br>
         <button class="button" (click)="getJoke()">Tel me</button></div>
 </div>
 <div class="jokeDisplay">

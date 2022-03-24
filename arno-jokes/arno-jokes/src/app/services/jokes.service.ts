@@ -8,21 +8,14 @@ import { JokeI } from '../components/jokes/joke';
 })
 export class JokesService {
   jokeServiceText?: Observable<string>;
-  url = '';
-  newUrl?: string = '';
-
-  private categorySource = new Subject<string>();
-  componentCategory$ = this.categorySource.asObservable();
+  url = 'https://v2.jokeapi.dev/joke/';
 
   constructor(private http: HttpClient) {}
 
-  jokeCategoryChange(message: string) {
-    this.url = 'https://v2.jokeapi.dev/joke/' + this.categorySource.next(message);
-    // console.log(this.categorySource);
-  }
-  getJokeFromServer(): Observable<JokeI> {
-    let params = new HttpParams().set('contains', '');
-    return this.http.get<JokeI>(this.url, { params });
-    console.log(this.http.get<JokeI>(this.url, { params }));
+  getJokeFromServer(jokeCategories: any, jokeContains: string): Observable<JokeI> {
+    console.log(jokeCategories);
+    console.log(jokeContains);
+    let params = new HttpParams().set('contains', jokeContains);
+    return this.http.get<JokeI>(this.url + jokeCategories, { params });
   }
 }
