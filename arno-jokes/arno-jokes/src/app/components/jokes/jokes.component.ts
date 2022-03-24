@@ -18,8 +18,9 @@ export class JokesComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getJokeCategories(jokeCategories?: string) {
-    this.JokesService.jokeCategoryChange(jokeCategories);
+  getJokeCategories(jokeCategories: string) {
+    console.log(this.JokesService.jokeCategoryChange(jokeCategories));
+    console.log(jokeCategories);
   }
 
   getJoke() {
