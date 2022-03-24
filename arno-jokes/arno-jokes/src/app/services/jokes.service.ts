@@ -8,7 +8,7 @@ import { JokeI } from '../components/jokes/joke';
 })
 export class JokesService {
   jokeServiceText?: Observable<string>;
-  url = 'https://v2.jokeapi.dev/joke/';
+  url = '';
   newUrl?: string = '';
 
   private categorySource = new Subject<string>();
@@ -16,12 +16,13 @@ export class JokesService {
 
   constructor(private http: HttpClient) {}
 
-  jokeCategoryChange(message: any) {
-    this.categorySource.next(message);
+  jokeCategoryChange(message: string) {
+    this.url = 'https://v2.jokeapi.dev/joke/' + this.categorySource.next(message);
+    // console.log(this.categorySource);
   }
   getJokeFromServer(): Observable<JokeI> {
     let params = new HttpParams().set('contains', '');
-    return this.http.get<JokeI>(this.url + '/' + this.categorySource, { params });
-    console.log(this.http.get<JokeI>(this.url + '/' + this.categorySource, { params }));
+    return this.http.get<JokeI>(this.url, { params });
+    console.log(this.http.get<JokeI>(this.url, { params }));
   }
 }
