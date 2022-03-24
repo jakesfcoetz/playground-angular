@@ -12,26 +12,28 @@ export class JokesComponent implements OnInit {
   joke?: JokeI;
   jokeArray: string[] = [];
   jokeTextBox: string = '';
-  jokeCategories: string = '';
+  jokeCategories: any = 'Any';
 
   constructor(private JokesService: JokesService) {}
 
   ngOnInit(): void {}
 
-  getJokeCategories(jokeCategories: string) {
-    console.log(this.JokesService.jokeCategoryChange(jokeCategories));
-    console.log(jokeCategories);
+  getJokeCategories(data: string) {
+    this.jokeCategories = data;
   }
 
   getJoke() {
-    this.JokesService.jokeServiceText?.subscribe((data) => (data = this.jokeTextBox));
-    this.JokesService.getJokeFromServer().subscribe((response) => {
+    this.JokesService.getJokeFromServer(this.jokeCategories, this.jokeTextBox).subscribe((response) => {
       this.joke = response;
-      this.jokeArray.splice(2, 1);
-      if (this.joke.type == 'single' && this.joke.joke) {
-        this.jokeArray.push((this.jokeText = this.joke.joke));
-      } else if (this.joke.type == 'twopart' && this.joke.delivery) {
-        this.jokeArray.push((this.jokeText = this.joke.setup + '  ' + this.joke.delivery));
+      if (this.joke.error == true) {
+        this.jokeArray.push('No joke found...');
+      } else {
+        this.jokeArray.splice(2, 1);
+        if (this.joke.type == 'single' && this.joke.joke) {
+          this.jokeArray.push((this.jokeText = this.joke.joke));
+        } else if (this.joke.type == 'twopart' && this.joke.delivery) {
+          this.jokeArray.push((this.jokeText = this.joke.setup + '  ' + this.joke.delivery));
+        }
       }
       this.jokeArray.reverse();
     });
