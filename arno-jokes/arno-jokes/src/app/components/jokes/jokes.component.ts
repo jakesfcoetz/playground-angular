@@ -1,5 +1,5 @@
 import { JokesService } from './../../services/jokes.service';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JokeI } from './joke';
 
 @Component({
