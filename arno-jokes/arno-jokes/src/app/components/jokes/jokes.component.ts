@@ -1,6 +1,5 @@
 import { JokesService } from './../../services/jokes.service';
 import { Component, OnInit } from '@angular/core';
-import { JokeI } from './joke';
 
 @Component({
   selector: 'app-jokes',
@@ -9,7 +8,6 @@ import { JokeI } from './joke';
 })
 export class JokesComponent implements OnInit {
   jokeText: string = '';
-  joke?: JokeI;
   jokeArray: string[] = [];
   jokeTextBox: string = '';
   jokeCategories: any = 'Any';
@@ -23,19 +21,19 @@ export class JokesComponent implements OnInit {
   }
 
   getJoke() {
+    this.jokeText = '';
     this.JokesService.getJokeFromServer(this.jokeCategories, this.jokeTextBox).subscribe((response) => {
-      this.joke = response;
-      this.jokeArray.splice(2, 1);
-      if (this.joke.error == true) {
+      if (response.error == true) {
         this.jokeArray.push('No joke found...');
       } else {
-        if (this.joke.type == 'single' && this.joke.joke) {
-          this.jokeArray.push((this.jokeText = this.joke.joke));
-        } else if (this.joke.type == 'twopart' && this.joke.delivery) {
-          this.jokeArray.push((this.jokeText = this.joke.setup + '  ' + this.joke.delivery));
+        if (response.type == 'single' && response.joke) {
+          this.jokeText = response.joke;
+        } else if (response.type == 'twopart' && response.delivery && response.setup) {
+          this.jokeText = response.setup + '  ' + response.delivery;
         }
+        this.jokeArray.unshift(this.jokeText);
+        this.jokeArray.splice(3, 1);
       }
-      this.jokeArray.reverse();
     });
   }
 }

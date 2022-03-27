@@ -8,9 +8,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, JokesComponent, NavbarComponent, WelcomeComponent],
+  declarations: [AppComponent, JokesComponent, NavbarComponent, WelcomeComponent, LoginFormComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

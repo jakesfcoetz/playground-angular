@@ -8,14 +8,11 @@ import { JokeI } from '../components/jokes/joke';
 })
 export class JokesService {
   jokeServiceText?: Observable<string>;
-  url = 'https://v2.jokeapi.dev/joke/';
 
   constructor(private http: HttpClient) {}
 
   getJokeFromServer(jokeCategories: any, jokeContains: string): Observable<JokeI> {
-    console.log(jokeCategories);
-    console.log(jokeContains);
     let params = new HttpParams().set('contains', jokeContains);
-    return this.http.get<JokeI>(this.url + jokeCategories, { params });
+    return this.http.get<JokeI>('https://v2.jokeapi.dev/joke/' + jokeCategories, { params });
   }
 }
