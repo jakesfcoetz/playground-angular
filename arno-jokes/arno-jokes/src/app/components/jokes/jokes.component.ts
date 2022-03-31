@@ -24,7 +24,7 @@ export class JokesComponent implements OnInit {
     this.jokeText = '';
     this.JokesService.getJokeFromServer(this.jokeCategories, this.jokeTextBox).subscribe((response) => {
       if (response.error == true) {
-        this.jokeArray.push('No joke found...');
+        this.jokeArray.unshift('No joke found...');
       } else {
         if (response.type == 'single' && response.joke) {
           this.jokeText = response.joke;
@@ -32,7 +32,7 @@ export class JokesComponent implements OnInit {
           this.jokeText = response.setup + '  ' + response.delivery;
         }
         this.jokeArray.unshift(this.jokeText);
-        this.jokeArray.splice(3, 1);
+        this.jokeArray.splice(2, 1);
       }
     });
   }
