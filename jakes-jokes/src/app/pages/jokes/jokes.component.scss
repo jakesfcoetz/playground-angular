@@ -1,0 +1,30 @@
+#joke-filter {
+  display: flex;
+  justify-content: center;
+
+  .selection {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+    h3 {
+      margin: 0px;
+      width: 100px;
+    }
+
+    p {
+      margin: 0px;
+    }
+  }
+}
+
+#button-get-joke {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+#joke-list {
+  max-width: 50%;
+  margin: auto;
+}
