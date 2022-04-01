@@ -4,7 +4,7 @@ Playground that contains various angular projects including `eslint` and `pretti
 
 ## Requirements
 
-Firstly install the latest LTS version of `Node.js` from `https://nodejs.org/en/download/`
+Firstly install the latest LTS version of [Node.js](https://nodejs.org/en/download/)
 
 Run in the terminal:
 
